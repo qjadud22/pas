@@ -2,5 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.musinsa.pas.api.product.ProductDao">
+    <resultMap type="com.musinsa.pas.model.dto.Product" id="selectProduct-result">
+        <result column="goods_no" property="no"/>
+        <result column="goods_nm" property="name"/>
+        <result column="goods_const" property="content"/>
+        <result column="com_id" property="company.code"/>
+        <result column="com_nm" property="company.name"/>
+        <result column="reg_dm" property="regDate"/>
+        <result column="upd_dm" property="modifyDate"/>
+    </resultMap>
+    <select id="selectProduct" resultMap="selectProduct-result" parameterType="com.musinsa.pas.model.dto.Product">
+        SELECT
+            goods_no,
+            goods_nm,
+            goods_const,
+            goods.com_id,
+            company.com_nm,
+            reg_dm,
+            upd_dm
+        FROM
+            goods
+            LEFT JOIN company ON (goods.com_id = company.com_id)
+        WHERE
+            1=1
+    </select>
 
+    <insert id="insertProduct" parameterType="com.musinsa.pas.model.dto.Product">
+        INSERT INTO goods
+            (goods_nm, goods_const, com_id, reg_dm, upd_dm)
+        VALUES
+            (#{name}, #{content}, #{company.code}, now(), now())
+    </insert>
 </mapper>
