@@ -25,6 +25,11 @@
             LEFT JOIN company ON (goods.com_id = company.com_id)
         WHERE
             1=1
+        <if test="0 lt no">
+            AND goods_no = #{no}
+        </if>
+        LIMIT
+            #{selectAddData.offset}, #{selectAddData.limit}
     </select>
 
     <insert id="insertProduct" parameterType="com.musinsa.pas.model.dto.Product">

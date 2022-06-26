@@ -15,6 +15,11 @@ public class ProductServiceImplA implements ProductService {
     @Autowired
     ProductDao productDao;
 
+    /**
+     * 상품 리스트 조회
+     * @param product
+     * @return
+     */
     @Override
     public List<Map<String, Object>> getList(Product product) {
         List<Map<String, Object>> result = new ArrayList<>();
@@ -32,6 +37,11 @@ public class ProductServiceImplA implements ProductService {
         return result;
     }
 
+    /**
+     * 상품 입력
+     * @param product
+     * @return
+     */
     @Override
     public int insertProduct(Product product) {
         return productDao.insertProduct(product);

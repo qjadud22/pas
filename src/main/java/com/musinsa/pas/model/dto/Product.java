@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/**
+ * 상품
+ */
 @Data
 public class Product {
     /**
@@ -35,6 +38,11 @@ public class Product {
      * 업체
      */
     private Company company;
+
+    /**
+     * select 추가 정보
+     */
+    private SelectAddData selectAddData;
 
 
 }
