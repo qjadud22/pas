@@ -80,7 +80,7 @@ public class ProductController {
      * content : 상품설명
      * @return
      */
-    @PostMapping(value = "v1/products", produces={MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(value = "v1/products", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResultMessage> setProduct(@RequestBody String request) {
         logger.info("request Body : {}", request);
 
