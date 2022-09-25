@@ -44,9 +44,9 @@ public class ProductController {
             @RequestParam(value = "offset", required = false, defaultValue = "0") int offset,
             @RequestParam(value = "limit", required = false, defaultValue = "20") int limit
             ) {
-        logger.info("code : {}", no);
-        logger.info("offset : {}", offset);
-        logger.info("limit : {}", limit);
+        logger.info("code2 : {}", no);
+        logger.info("offset56 : {}", offset);
+        logger.info("limit765 : {}", limit);
 
         // 파라미터 유효성 오류
         if ((no < 0) || (offset < 0) || (limit >= 100)) {
